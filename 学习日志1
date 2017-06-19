@@ -1,0 +1,22 @@
+UILabel
+UILabel* label=[[UILabel alloc]init];//创建Label alloc 分配内存 init 初始化
+label.text=@"你好世界！“；
+label.frame=CGRectMake(100,100,160,40);//确定Label 的位置左上角坐标和宽高
+label.backgroundColor=[UIColor whiteColor];
+//显示label
+[self.view addSubview:label];
+
+[UIColor clearColor]//没有背景颜色
+self.view.backgroundColor=[UIColor grayColor];//设置屏幕的背景色
+label.font=[UIFont systemFontOfSize:12]//设置Label的字体
+label.textColor//文字的颜色
+label.shadowColor//阴影的颜色
+label.shadowOffset=CGSizeMake(0,10) //设置阴影的偏移量,左右和上下偏移
+
+label.textAlignment=NSTextAlignmentCenter;//设置文字对齐方式为对齐，默认为左侧对齐
+
+文字长度超过Label的大小？如何自动换行
+设置label的文字显示行数，默认为1
+label.numberOfLines=2；
+默认为1 ，其他大于0的行数，文字会尽量按照设定行数来显示
+如果是0，那么IOS会对文字自动计算所需要的行数，按照需要的行数显示文字
