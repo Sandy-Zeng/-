@@ -1,0 +1,93 @@
+字符串插入变量
+var string=“\(varA) 乘于\(countA)等于\(varC*100)”
+字符串长度
+String.characters.count属性计算
+创建数组
+var someArray=[someType](repeating: InitialValue,count:NumberOfElements)
+var someArray=[someType]()//创建空数组
+
+eg: var someInts=[Int](repeating:0,count:3)
+用append方法或＋＝在数组末尾添加元素
+for-in 循环遍历所有数组中的数据项
+for item in someStrs(
+    print(item)
+)
+isEmpty 判断是否为空
+
+字典
+var someDict=[KeyType:valueTyoe]()//创建一个空字典
+通过Key值访问字典中的元素
+ var removedValue = someDict.removeValue(forKey: 2)
+移除键值对
+for (key,value) in someDict{
+    ….}//遍历字典
+count属性计算有多少个对
+
+Swift 函数
+fun funcname (形参）－> return type
+{
+   …..
+   return parameters
+}
+func runoob(site: String) -> String {
+    return (site)
+}
+runoob(site: "www.runoob.com”)//函数调用
+
+可以返回元组
+如果你不确定返回的元组一定不为nil，那么你可以返回一个可选的元组类型。
+你可以通过在元组类型的右括号后放置一个问号来定义一个可选元组，例如(Int, Int)?或(String, Int, Bool)
+
+
+改变函数中参数的值，用inout关键字调用时用&修饰参数
+默认为传值调用，在函数内部不改变参数的值
+func swapTwoInts(_ a: inout Int, _ b: inout Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+
+var x = 1
+var y = 5
+swapTwoInts(&x, &y)
+print("x 现在的值 \(x), y 现在的值 \(y)")
+x 现在的值 5, y 现在的值 1 ／／执行结果
+
+使用函数类型
+可以定义一个类型为函数的常量或变量，并将适当的函数赋值给它
+var addition:(Int,Int)->Int=sum
+定义了一个addition的变量，参数与返回类型均是int，并让这个新变量指向　sum 函数
+可以用addition来调用被赋值的函数了
+
+类定义
+class student{
+   var studname: String
+   var mark: Int 
+   var mark2: Int 
+}
+实例化类
+let studrecord = student()
+
+
+
+OS开发
+storyboard  视图
+app delegate 应用程序入口
+viewcontroller 控制器
+
+可以通过
+if let ….{
+}
+else{
+}
+避免空值
+
+可以用playground来进行逻辑测试
+可以通过视图拆分将视图中的控件绑定到viewController  相应的事件中，按住control然后拖动鼠标到类里面进行绑定
+弹出键盘可以在textfield的属性中的keyboard进行设置
+通过yearOfBirth.resignFirsyResponder 进行失去焦点之后键盘隐藏
+
+outlet绑定属性
+action绑定方法
+
