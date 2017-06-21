@@ -1,0 +1,63 @@
+iOS 开发
+可以在属性栏修改键盘的return键的内容
+然后再viercontroller中设置点击事件继承uitextfielddelegate
+用textfieldshouldreturn 方法 当点击next按钮时resignfirstresponder 取消焦点 让软键盘消失
+记得在viewdidload中进行绑定
+name.delegate＝self
+
+ 多页面 segment 通过鼠标链接两个view
+对新增加的view 增加一个view controller文件作为其绑定类
+对于picker的数据传送了动作 
+在viewdidload中有
+beautypicker.datasource ＝ self
+beauty picker。delegate ＝ self 进行绑定
+
+有多个view时在segment的attribute中对它进行命名
+在不同的view之间进行数据传送时有
+prepareforsegue方法
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "GoToGallery"{
+            let index = beautypicker.selectedRowInComponent(0)
+            var imageName : String?
+            switch index{
+            case 0:
+                imageName="1"
+            case 1:
+                imageName="2"
+            case 2:
+                imageName="3"
+            default:
+                imageName=nil
+            }
+            
+            var vc=segue.destinationViewController as! GalleryViewController／／指明目的的view
+            vc.imageName = imageName
+        }
+    }
+
+由于苹果没有返回键，需要自己制作返回按钮
+在viewcontroller中通过close方法
+@IBAction func close(segue: UIStoryboardSegue){
+        print("closed")
+}
+进行对返回按钮和exit的绑定
+在该方法中也可以进行值的传递
+
+Model 类型的segue 表示新的页面会覆盖原来的页面、
+push 类型只有在有navigation controller时才不会crash而且会包含navigationcontroller
+添加　navigation controller 点击你要添加的viewcontroller
+然后通过editor embedin  navigationcontroller添加导航栏
+在不同的view controller的viewdidload方法中通过设置navigation item.title来设置导航的标题栏
+
+分享功能
+barbuttonitem 添加到导航栏中
+然后在相应的view controller中设置button的响应函数
+@IBAction func share(sender: AnyObject) {
+        var controller: SLComposeViewController =
+            SLComposeViewController(forServiceType:
+                SLServiceTypeTwitter)／／服务类型有苹果设置好的几个社交平台，如果要用其他则要用到第三方的sdk
+        controller.setInitialText("Have Fun together”)//设置初始文本
+        controller.addImage(beautyimage.image)
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+在头部import social 苹果自带的社交框架 可以进行在社交平台上分享
