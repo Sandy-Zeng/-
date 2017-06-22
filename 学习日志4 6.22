@@ -1,0 +1,12 @@
+1、Tapbarcontroller的使用
+跟navigationcontroller一样用editor 中embedin进行插入
+然后通过ctrl＋左键进行tabarcontroller对不同页面的绑定
+在不同的viewcontroller中设置tabarcontroller 不同标题的更改以及图标的插入
+attribute中修改
+
+2、autolayout基础
+由于不同设备屏幕大小不同，要进行设备的适配
+勾选autolayout的选项
+可以手动的设置约束，通过ctrl＋左键将控件跟边距进行约束
+也可以通过点击整个view通过右下方的三角按钮中的addmissingconstrain选项进行自动的添加约束
+
